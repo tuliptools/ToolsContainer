@@ -1,0 +1,12 @@
+defaults
+mode tcp
+timeout connect 50000ms
+timeout client 100000ms
+timeout server 100000ms
+
+frontend node-in
+bind 127.0.0.1:8732
+default_backend localnode
+
+backend localnode
+server server1 node:8732 maxconn 32
